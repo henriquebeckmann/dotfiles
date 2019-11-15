@@ -1,0 +1,283 @@
+##############################################################
+########################  _ _____  ###########################
+######################## (_)___ /  ###########################
+######################## | | |_ \  ###########################
+######################## | |___) | ###########################
+######################## |_|____/  ###########################
+########################           ###########################
+##############################################################
+
+
+##############################################################
+################ M A I N #####################################
+##############################################################
+set $mod Mod4
+font pango:Monospace 9
+new_window pixel 3
+focus_on_window_activation focus
+
+##############################################################
+################ C O L O R S #################################
+##############################################################
+#class                  border   backgr.  text  indicator
+client.focused          #2f343f #444444 #ffffff #cad0c4
+client.focused_inactive #2f343f #222222 #ffffff
+client.unfocused        #2f343f #232323 #ffffff
+client.urgent           #a5a5a5 #a5a5a5 #1E1E1E
+client.background       #161616
+
+##############################################################
+################ B I N D I N G S #############################
+##############################################################
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec --no-startup-id termite
+bindsym $mod+apostrophe split vertical ;; exec --no-startup-id termite
+
+# kill focused window
+bindsym $mod+Shift+q kill
+bindsym $mod+q kill
+
+# rofi
+bindsym $mod+d exec --no-startup-id rofi -show run -theme $HOME/.config/rofi/themes/dmenu.rasi -kb-row-select "Tab" -kb-row-tab ""
+bindsym $mod+shift+f exec --no-startup-id python3 $HOME/.config/rofi/scripts/find
+bindsym $mod+m exec --no-startup-id rofi -show drun -xoffset 1065 -yoffset 9 -theme ~/.config/rofi/themes/sidetab.rasi
+bindsym $mod+c exec --no-startup-id $HOME/.config/rofi/scripts/configs
+bindsym $mod+Tab exec --no-startup-id rofi -show window -lines 5 -width 35
+
+# lock
+bindsym $mod+shift+x exec --no-startup-id $HOME/.config/i3/lock.sh
+
+# screenshot
+bindsym Print exec --no-startup-id gnome-screenshot
+bindsym ctrl+Print exec --no-startup-id gnome-screenshot -w
+bindsym Shift+Print exec --no-startup-id gnome-screenshot -a
+
+# screencast
+bindsym mod1+shift+r exec --no-startup-id $HOME/.config/scripts/screencaster.sh
+
+# media hotkeys
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
+bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+ccedilla focus right
+
+# alternatively, you can use the cursor kets:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+ccedilla move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in vertical orientation
+bindsym $mod+h split v
+
+# split in horizontal orientation
+bindsym $mod+v split h
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+e layout tabbed
+bindsym $mod+w layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# center window
+bindsym $mod+Shift+c move position center
+
+# Scratchpad
+ bindsym $mod+Shift+minus move scratchpad
+ bindsym $mod+Shift+plus scratchpad show
+
+# brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 2
+bindsym XF86MonBrightnessDown exec xbacklight -dec 2
+
+# browse the windows
+bindsym Mod1+Tab workspace next
+bindsym Mod1+Shift+Tab workspace prev
+
+# bindings prograns
+bindsym $mod+shift+w exec --no-startup-id google-chrome
+bindsym $mod+shift+t exec --no-startup-id thunar
+bindsym $mod+t exec --no-startup-id termite -e ranger
+bindsym $mod+shift+p exec --no-startup-id pavucontrol
+bindsym $mod+n exec --no-startup-id termite -e "ncmpcpp -S visualizer"
+
+##############################################################
+################ W O R K S P A C E S #########################
+##############################################################
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+##############################################################
+################ G R O U P S #################################
+##############################################################
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+set $power "[s]hutdown, [r]eboot, [l]ook, [e]xit"
+mode $power {
+	bindsym s exec systemctl poweroff
+	bindsym r exec systemctl reboot
+	bindsym l exec $HOME/.config/i3/lock.sh
+	bindsym e exec i3-msg exit
+
+	bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+shift+e mode $power
+
+#############################################################
+############### G A P S #####################################
+#############################################################
+for_window [class="^.*"] border pixel 3
+gaps inner 10
+gaps outer 0
+#smart_gaps on
+
+bindsym $mod+i gaps inner current plus 5
+bindsym $mod+shift+i gaps inner current minus 5
+
+bindsym $mod+o gaps outer current plus 5
+bindsym $mod+shift+o gaps outer current minus 5
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+#############################################################
+############### R U L E S ###################################
+#############################################################
+for_window [urgent="latest"] focus
+for_window [class="Nitrogen"] floating enable
+for_window [class="Pavucontrol"] floating enable, move position center
+for_window [class="Qalculate-gtk"] floating enable, move position center
+for_window [title="screencaster$"] move window to scratchpad
+
+#############################################################
+############### I N I T #####################################
+#############################################################
+exec --no-startup-id compton
+exec --no-startup-id start-pulseaudio-x11
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id $HOME/.config/polybar/laush.sh
+exec --no-startup-id $HOME/.config/scripts/battery-notify

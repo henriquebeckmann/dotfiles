@@ -1,0 +1,80 @@
+# Este arquivo viminfo foi gerado pelo Vim 8.1.
+# Você pode editá-lo se for cuidadoso!
+
+# Viminfo version
+|1,4
+
+# Valor de 'encoding' quando este arquivo foi escrito
+*encoding=utf-8
+
+
+# hlsearch on (H) or off (h):
+~h
+# Histórico de linha de comando (mais recente primeiro):
+:q
+|2,0,1544768492,,"q"
+:w
+|2,0,1544768477,,"w"
+
+# Histórico de expressões de busca (mais recente primeiro):
+
+# Histórico de expressões (mais recente primeiro):
+
+# Histórico de linha de entrada (mais recente primeiro):
+
+# Histórico de linha de debug (mais recente primeiro):
+
+# Registradores:
+""1	LINE	0
+	for i in range()
+|3,1,1,1,1,0,1544768284,"for i in range()"
+"2	LINE	0
+	for i in range():
+|3,0,2,1,1,0,1544768277,"for i in range():"
+"3	LINE	0
+	
+|3,0,3,1,1,0,1544768277,""
+"4	LINE	0
+	
+|3,0,4,1,1,0,1544768277,""
+"5	LINE	0
+	
+|3,0,5,1,1,0,1544768277,""
+"6	LINE	0
+	
+|3,0,6,1,1,0,1544768277,""
+"7	LINE	0
+	
+|3,0,7,1,1,0,1544768277,""
+"8	LINE	0
+	
+|3,0,8,1,1,0,1544768277,""
+"9	LINE	0
+	
+|3,0,9,1,1,0,1544768277,""
+
+# Marcas nos arquivos:
+'0  6  15  ~/teste.py
+|4,48,6,15,1544768492,"~/teste.py"
+
+# Lista de saltos (mais recente primeiro):
+-'  6  15  ~/teste.py
+|4,39,6,15,1544768492,"~/teste.py"
+
+# Histórico de marcas nos arquivos (mais recente primeiro):
+
+> ~/teste.py
+	*	1544768481	0
+	"	6	15
+	^	6	16
+	.	6	16
+	+	1	17
+	+	1	0
+	+	1	17
+	+	6	12
+	+	2	0
+	+	4	14
+	+	3	0
+	+	4	21
+	+	5	11
+	+	6	16
